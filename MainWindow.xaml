@@ -9,7 +9,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <xctk:DecimalUpDown x:Name="IntegerUpDown1" 
-                             Value="100.00" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126"/>
+                             Value="{Binding Input}" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126"/>
 
         <xctk:DecimalUpDown x:Name="IntegerUpDown2" 
                              Value="100.00" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126"/>
