@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace WpfAppErrorHandling
@@ -13,6 +14,33 @@ namespace WpfAppErrorHandling
         public event PropertyChangedEventHandler PropertyChanged;
         private double input1_;
         private double input2_;
+        bool hasViewError;
+        public bool HasViewError
+        {
+            get { return hasViewError; }
+            set
+            {
+                hasViewError = value;
+                OnPropertyChanged("hasViewError");
+                SampleCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public MainWindowViewModel()
+        {
+            this.SampleCommand = new DelegateCommand(
+                // Execute
+                () =>
+                {
+                },
+                // CanExecute
+                () =>
+                {
+                    return !HasViewError;
+                });
+        }
+
+        public DelegateCommand SampleCommand { get; private set; }
         public double Input1
         {
             get { return input1_; }
