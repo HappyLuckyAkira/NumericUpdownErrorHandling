@@ -11,8 +11,11 @@
             <local:MainWindowViewModel/>
         </Window.DataContext>
     <Grid>
-        <xctk:DecimalUpDown x:Name="IntegerUpDown1" 
-                             Value="{Binding Input1}" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126"/>
+        <xctk:DecimalUpDown
+                            x:Name="IntegerUpDown1" 
+                            Maximum="100.0"
+                            Minimum="-1.00"
+                             Value="{Binding Input1, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126" />
 
         <xctk:DecimalUpDown x:Name="IntegerUpDown2" 
                              Value="{Binding Input2}" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126"/>
