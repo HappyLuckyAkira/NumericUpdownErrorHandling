@@ -16,6 +16,5 @@
 
         <xctk:DecimalUpDown x:Name="IntegerUpDown2" 
                              Value="{Binding Input2}" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="24,73,0,0" TextWrapping="Wrap" Text="{Binding Input3}" VerticalAlignment="Top" Width="126"/>
     </Grid>
 </Window>
