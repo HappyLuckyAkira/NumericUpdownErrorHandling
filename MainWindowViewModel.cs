@@ -27,7 +27,7 @@ namespace WpfAppErrorHandling
             get { return input2_; }
             set
             {
-                input1_ = value;
+                input2_ = value;
                 OnPropertyChanged("Input2");
             }
         }
