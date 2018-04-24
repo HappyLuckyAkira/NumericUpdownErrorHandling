@@ -16,5 +16,7 @@
 
         <xctk:DecimalUpDown x:Name="IntegerUpDown2" 
                              Value="{Binding Input2}" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button Content="Apply" HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="75"/>
+        <!--<Button Content="OK" Command="{Binding Path=SampleCommand}" />-->
     </Grid>
 </Window>
