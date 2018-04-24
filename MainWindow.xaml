@@ -7,11 +7,15 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+        <Window.DataContext>
+            <local:MainWindowViewModel/>
+        </Window.DataContext>
     <Grid>
         <xctk:DecimalUpDown x:Name="IntegerUpDown1" 
-                             Value="{Binding Input}" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126"/>
+                             Value="{Binding Input1}" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126"/>
 
         <xctk:DecimalUpDown x:Name="IntegerUpDown2" 
-                             Value="100.00" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126"/>
+                             Value="{Binding Input2}" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="24,73,0,0" TextWrapping="Wrap" Text="{Binding Input3}" VerticalAlignment="Top" Width="126"/>
     </Grid>
 </Window>
