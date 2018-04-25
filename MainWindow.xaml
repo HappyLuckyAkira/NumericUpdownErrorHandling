@@ -19,7 +19,33 @@
                             x:Name="IntegerUpDown1" 
                             Maximum="100.0"
                             Minimum="-1.00"
-                             Value="{Binding Input1, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126" />
+                            Value="{Binding Input1, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126">
+            <!--<Validation.Rules>
+                </local:DoubleInputValidationRule.MinValue>
+                <local:DoubleInputValidationRule.MaxValue>
+                    <local:DependencyInt Value="{Binding MaxInputValue, Source={StaticResource vm}}" />
+                </local:DoubleInputValidationRule.MaxValue>
+                </local:DoubleInputValidationRule>
+            </Validation.Rules>-->
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Border BorderBrush="Blue" BorderThickness="3">
+                        <AdornedElementPlaceholder />
+                    </Border>
+                </ControlTemplate>
+                    
+            </Validation.ErrorTemplate>
+
+            <xctk:DecimalUpDown.Style>
+                <Style TargetType="xctk:DecimalUpDown">
+                    <Style.Triggers>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Background" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </xctk:DecimalUpDown.Style>
+        </xctk:DecimalUpDown>
 
         <xctk:DecimalUpDown x:Name="IntegerUpDown2" 
                              Value="{Binding Input2}" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126"/>
