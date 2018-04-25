@@ -11,9 +11,9 @@
         <Window.DataContext>
             <local:MainWindowViewModel/>
         </Window.DataContext>
-    <i:Interaction.Behaviors>
-        <local:ValidationErrorBehavior HasViewError="{Binding HasViewError, Mode=OneWayToSource}"/>
-    </i:Interaction.Behaviors>
+        <i:Interaction.Behaviors>
+            <local:ValidationErrorBehavior HasViewError="{Binding HasViewError, Mode=OneWayToSource}"/>
+        </i:Interaction.Behaviors>
     <Grid>
         <xctk:DecimalUpDown
                             x:Name="IntegerUpDown1" 
@@ -48,7 +48,27 @@
         </xctk:DecimalUpDown>
 
         <xctk:DecimalUpDown x:Name="IntegerUpDown2" 
-                             Value="{Binding Input2}" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126"/>
+                             Value="{Binding Input2, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="24,46,0,0" VerticalAlignment="Top" Width="126">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Border BorderBrush="Blue" BorderThickness="3">
+                        <AdornedElementPlaceholder />
+                    </Border>
+                </ControlTemplate>
+
+            </Validation.ErrorTemplate>
+
+            <xctk:DecimalUpDown.Style>
+                <Style TargetType="xctk:DecimalUpDown">
+                    <Style.Triggers>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Background" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </xctk:DecimalUpDown.Style>
+        </xctk:DecimalUpDown>
+
         <Button Content="Apply" Command="{Binding Path=SampleCommand}" HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="75"/>
         <!--<Button Content="OK" Command="{Binding Path=SampleCommand}" />-->
     </Grid>
