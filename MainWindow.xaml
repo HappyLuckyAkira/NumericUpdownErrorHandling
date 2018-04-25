@@ -16,13 +16,22 @@
                             Maximum="100.0"
                             Minimum="-1.00"
                             Value="{Binding Input1, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="126">
+            <!--<Validation.Rules>
+                </local:DoubleInputValidationRule.MinValue>
+                <local:DoubleInputValidationRule.MaxValue>
+                    <local:DependencyInt Value="{Binding MaxInputValue, Source={StaticResource vm}}" />
+                </local:DoubleInputValidationRule.MaxValue>
+                </local:DoubleInputValidationRule>
+            </Validation.Rules>-->
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <Border BorderBrush="Blue" BorderThickness="3">
                         <AdornedElementPlaceholder />
                     </Border>
                 </ControlTemplate>
+                    
             </Validation.ErrorTemplate>
+
             <xctk:DecimalUpDown.Style>
                 <Style TargetType="xctk:DecimalUpDown">
                     <Style.Triggers>
